@@ -24,6 +24,7 @@ class Form extends Component {
 
     fetchAvailableTimes() {
         // fetch(`https://appointment-app-server.herokuapp.com/date/${this.selectedDate}`)
+        console.log(this.selectedDate);
         fetch(`http://localhost:3000/date/${this.selectedDate}`)
          .then( (response) => {
              return response.json()
