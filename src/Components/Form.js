@@ -13,6 +13,7 @@ class Form extends Component {
     }
    
     componentDidMount() {
+            console.log(process.env);
             let elems = document.querySelectorAll('.datepicker');
             let instances = M.Datepicker.init(elems, { disableWeekends: true, format: 'dd, mm, yyyy' });
             let instance = instances[0];
@@ -23,8 +24,8 @@ class Form extends Component {
 
  
     fetchAvailableTimes() {
-        fetch(`https://appointment-app-server.herokuapp.com/date/${this.state.date}`)
-        // fetch(`http://localhost:3000/date/${this.selectedDate}`)
+        // fetch(`https://appointment-app-server.herokuapp.com/date/${this.state.date}`)
+        fetch(`http://localhost:3000/date/${this.selectedDate}`)
          .then( (response) => {
              return response.json()
          })
