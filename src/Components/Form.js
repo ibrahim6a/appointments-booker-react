@@ -13,7 +13,6 @@ class Form extends Component {
     }
    
     componentDidMount() {
-            console.log(process.env);
             let elems = document.querySelectorAll('.datepicker');
             let instances = M.Datepicker.init(elems, { disableWeekends: true, format: 'dd, mm, yyyy' });
             let instance = instances[0];
