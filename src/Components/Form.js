@@ -6,23 +6,25 @@ class Form extends Component {
     
     state = {
         date: '',
+        user: {
+            fullName: 'John Doe',
+            email: 'jd@gmail.com'
+        }
     }
-
-    selectedDate = null;
-    
+   
     componentDidMount() {
             let elems = document.querySelectorAll('.datepicker');
             let instances = M.Datepicker.init(elems, { disableWeekends: true, format: 'dd, mm, yyyy' });
             let instance = instances[0];
             instance.options.onSelect = () => {
-              this.selectedDate = instance.date;
+                this.setState({ date: instance.date })
             }
     }
 
  
     fetchAvailableTimes() {
-        // fetch(`https://appointment-app-server.herokuapp.com/date/${this.selectedDate}`)
-        fetch(`http://localhost:3000/date/${this.selectedDate}`)
+        fetch(`https://appointment-app-server.herokuapp.com/date/${this.state.date}`)
+        // fetch(`http://localhost:3000/date/${this.selectedDate}`)
          .then( (response) => {
              return response.json()
          })
@@ -32,12 +34,21 @@ class Form extends Component {
            .catch( (error) => {
                console.log(error);
            })
+    }   
+
+    updateUser = (event) => {
+        const { user } = { ...this.state };
+        const currentState = user;
+        const { name, value } = event.target;
+        currentState[name] = value;
+        this.setState({ user: currentState });
     }
 
     formSubmit = (event) => {
         event.preventDefault();
         this.fetchAvailableTimes();
-        this.props.handleSubmit();
+        this.setState({ date: this.selectedDate});
+        this.props.handleSubmit(this.state.user, this.state.date);
     }
 
     render() {
@@ -46,12 +57,12 @@ class Form extends Component {
                 <form onSubmit = {this.formSubmit}>
                     <div className = 'input-field'>
                         <label>Full Name:</label>
-                        <input className = '' type = 'text'></input>
+                        <input className = '' type = 'text' name = 'fullName' value = {this.state.user.fullName} onChange = {this.updateUser}></input>
                     </div>
 
                     <div className = 'input-field'>
                         <label>Email: </label>
-                        <input className = '' type = 'text'></input>
+                        <input className = '' type = 'text' name = 'email' value = {this.state.user.email} onChange = {this.updateUser}></input>
                     </div>
 
                     <div className = 'input-field'>
@@ -59,7 +70,7 @@ class Form extends Component {
                         <input type = 'text' className = 'datepicker'></input>
                     </div>
 
-                    <input type = 'submit' value = 'Submit' className = 'btn' ></input>
+                    <input type = 'submit' value = 'Check Availability' className = 'btn' ></input>
 
                 </form>
             </div>

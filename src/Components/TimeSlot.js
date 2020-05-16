@@ -7,7 +7,7 @@ function TimeSlot (props) {
 
     if (props.timeSlot.available) {
         actionLink = <button className = 'btn-flat amber-text text-accent-4' onClick = {() => {
-            props.bookAppointment(props.timeSlot.id)
+            props.bookAppointment(props.timeSlot)
         }}>Book Now</button>;
         
     } else {

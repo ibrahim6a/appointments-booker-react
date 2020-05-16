@@ -7,17 +7,17 @@ class TimeSlots extends Component {
         availableTimes: [
             {id: 0, timeSlot: 9, available: true},
             {id: 1, timeSlot: 10, available: true},
-            {id: 2, timeSlot: 11, available: false},
+            {id: 2, timeSlot: 11, available: true},
             {id: 3, timeSlot: 12, available: true},
-            {id: 4, timeSlot: 13, available: false},
+            {id: 4, timeSlot: 13, available: true},
             {id: 5, timeSlot: 14, available: true},
-            {id: 6, timeSlot: 15, available: false},
+            {id: 6, timeSlot: 15, available: true},
             {id: 7, timeSlot: 16, available: true},
         ]
     }
 
-    bookAppointment(time) {
-        console.log(`${time}`);
+    bookAppointment = (time) => {
+        this.props.bookSlot(time);
     }
 
     render() {
