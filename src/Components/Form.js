@@ -5,26 +5,23 @@ const M = window.M;
 class Form extends Component {
     
     state = {
-        date: ''
+        date: '',
     }
 
-    selectedDate = '';
-
+    selectedDate = null;
+    
     componentDidMount() {
-        document.addEventListener('DOMContentLoaded', function() {
             let elems = document.querySelectorAll('.datepicker');
-            let instances = M.Datepicker.init(elems, { disableWeekends: true });
+            let instances = M.Datepicker.init(elems, { disableWeekends: true, format: 'dd, mm, yyyy' });
             let instance = instances[0];
             instance.options.onSelect = () => {
               this.selectedDate = instance.date;
-              console.log(this.selectedDate);
             }
-          });
     }
 
+ 
     fetchAvailableTimes() {
         // fetch(`https://appointment-app-server.herokuapp.com/date/${this.selectedDate}`)
-        console.log(this.selectedDate);
         fetch(`http://localhost:3000/date/${this.selectedDate}`)
          .then( (response) => {
              return response.json()
@@ -32,6 +29,9 @@ class Form extends Component {
           .then( (result) => {
               console.log(result);
           })
+           .catch( (error) => {
+               console.log(error);
+           })
     }
 
     formSubmit = (event) => {
