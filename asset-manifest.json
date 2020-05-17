@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/appointments-booker-react/static/js/main.4c8dd247.chunk.js",
-    "main.js.map": "/appointments-booker-react/static/js/main.4c8dd247.chunk.js.map",
+    "main.js": "/appointments-booker-react/static/js/main.bced5f0a.chunk.js",
+    "main.js.map": "/appointments-booker-react/static/js/main.bced5f0a.chunk.js.map",
     "runtime-main.js": "/appointments-booker-react/static/js/runtime-main.530e27f6.js",
     "runtime-main.js.map": "/appointments-booker-react/static/js/runtime-main.530e27f6.js.map",
     "static/js/2.7e68566d.chunk.js": "/appointments-booker-react/static/js/2.7e68566d.chunk.js",
     "static/js/2.7e68566d.chunk.js.map": "/appointments-booker-react/static/js/2.7e68566d.chunk.js.map",
     "index.html": "/appointments-booker-react/index.html",
-    "precache-manifest.942c9821eadc70edddb0e5110e0c2fa7.js": "/appointments-booker-react/precache-manifest.942c9821eadc70edddb0e5110e0c2fa7.js",
+    "precache-manifest.a0aed227abe50501362e79645e5566d4.js": "/appointments-booker-react/precache-manifest.a0aed227abe50501362e79645e5566d4.js",
     "service-worker.js": "/appointments-booker-react/service-worker.js",
     "static/js/2.7e68566d.chunk.js.LICENSE.txt": "/appointments-booker-react/static/js/2.7e68566d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.530e27f6.js",
     "static/js/2.7e68566d.chunk.js",
-    "static/js/main.4c8dd247.chunk.js"
+    "static/js/main.bced5f0a.chunk.js"
   ]
 }
